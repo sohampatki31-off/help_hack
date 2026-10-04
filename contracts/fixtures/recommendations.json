@@ -1,0 +1,445 @@
+{
+  "business_id": "biz_aarohi_skin",
+  "synthetic": true,
+  "generated_at": "2026-10-04T05:00:00Z",
+  "recommendations": [
+    {
+      "recommendation_id": "rec_hot_leads",
+      "business_id": "biz_aarohi_skin",
+      "template_id": "tpl_hot_lead_followup",
+      "signal_ids": [
+        "sig_hot_leads_unattended"
+      ],
+      "title": "Follow up with the high-value unattended leads",
+      "rationale": "8 high-value leads are waiting; p90 response time is 38.5 h against a 4 h SLA. Recommended action: follow up with the high-value unattended leads. Success means lead wins between 2 and 4 within 7 days.",
+      "evidence_ids": [
+        "f_latency_hot_leads",
+        "f_unattended_hot_leads",
+        "lead_0412",
+        "lead_0388"
+      ],
+      "factors": {
+        "I": 0.8,
+        "U": 1.0,
+        "F": 0.9,
+        "R": 0.5,
+        "T": 0.9,
+        "Q": 0.87,
+        "E": 0.25,
+        "C": 0.05,
+        "D": 0.1
+      },
+      "q_breakdown": {
+        "data": 0.82,
+        "rule": 1.0,
+        "model": 0.85
+      },
+      "benefit": 0.818,
+      "cost_penalty": 0.1525,
+      "priority": 70.1,
+      "rank": 1,
+      "status": "proposed",
+      "blocked_reason": null,
+      "eligibility": [
+        {
+          "check": "forbidden_action",
+          "passed": true,
+          "detail": "Not a forbidden action."
+        },
+        {
+          "check": "budget",
+          "passed": true,
+          "detail": "Fits the budget."
+        },
+        {
+          "check": "capacity",
+          "passed": true,
+          "detail": "Fits weekly capacity."
+        },
+        {
+          "check": "data",
+          "passed": true,
+          "detail": "Required data present."
+        },
+        {
+          "check": "approval",
+          "passed": true,
+          "detail": "Human approval required."
+        }
+      ],
+      "expected": {
+        "kpi": "lead_wins",
+        "fact_id": "f_hot_lead_wins",
+        "direction": "up",
+        "low": 2,
+        "high": 4,
+        "unit": "count",
+        "window_days": 7,
+        "basis": "sum of calibrated probabilities of the targeted leads (2.93) +/- 1"
+      },
+      "confidence": "high",
+      "assumptions": [
+        "Trained on a public bank telemarketing dataset, not on Aarohi Skin data",
+        "Seasonal gifting demand before Diwali"
+      ],
+      "requires_approval": true,
+      "approval_reason": "customer_outreach",
+      "risks": [
+        "Over-contacting a lead",
+        "Discounting to close"
+      ],
+      "targets": {
+        "channel": null,
+        "segment": "high_value",
+        "lead_ids": [
+          "lead_0412",
+          "lead_0388",
+          "lead_0397",
+          "lead_0421",
+          "lead_0403",
+          "lead_0430",
+          "lead_0415",
+          "lead_0426"
+        ]
+      },
+      "synthetic": true,
+      "created_at": "2026-10-04T05:05:00Z",
+      "updated_at": "2026-10-04T05:05:00Z",
+      "decision": null,
+      "ledger": null,
+      "llm": {
+        "used": false,
+        "cached": false,
+        "provider": null,
+        "model": null,
+        "fallback": true,
+        "validator": {
+          "passed": false,
+          "retries": 0,
+          "errors": []
+        },
+        "prompt_version": "v1"
+      }
+    },
+    {
+      "recommendation_id": "rec_email_retention",
+      "business_id": "biz_aarohi_skin",
+      "template_id": "tpl_repeat_email_flow",
+      "signal_ids": [
+        "sig_email_repeat_cohort"
+      ],
+      "title": "Launch a repeat-buyer email flow",
+      "rationale": "First-time buyers on the email list repeat at 21.4% vs 16.2% (+32.1%). Recommended action: launch a repeat-buyer email flow. Success means repeat rate between 0.225 and 0.25 within 30 days.",
+      "evidence_ids": [
+        "f_repeat_email",
+        "f_repeat_rate"
+      ],
+      "factors": {
+        "I": 0.7,
+        "U": 0.5,
+        "F": 0.8,
+        "R": 0.9,
+        "T": 0.6,
+        "Q": 0.81,
+        "E": 0.35,
+        "C": 0.1,
+        "D": 0.2
+      },
+      "q_breakdown": {
+        "data": 0.82,
+        "rule": 0.8
+      },
+      "benefit": 0.701,
+      "cost_penalty": 0.2375,
+      "priority": 55.2,
+      "rank": 2,
+      "status": "proposed",
+      "blocked_reason": null,
+      "eligibility": [
+        {
+          "check": "forbidden_action",
+          "passed": true,
+          "detail": "Not a forbidden action."
+        },
+        {
+          "check": "budget",
+          "passed": true,
+          "detail": "Fits the budget."
+        },
+        {
+          "check": "capacity",
+          "passed": true,
+          "detail": "Fits weekly capacity."
+        },
+        {
+          "check": "data",
+          "passed": true,
+          "detail": "Required data present."
+        },
+        {
+          "check": "approval",
+          "passed": true,
+          "detail": "Human approval required."
+        }
+      ],
+      "expected": {
+        "kpi": "repeat_rate",
+        "fact_id": "f_repeat_email",
+        "direction": "up",
+        "low": 0.225,
+        "high": 0.25,
+        "unit": "ratio",
+        "window_days": 30,
+        "basis": "5% to 17% change from the current value"
+      },
+      "confidence": "medium",
+      "assumptions": [
+        "The cohort comparison is observational, not proof of cause",
+        "Seasonal demand"
+      ],
+      "requires_approval": true,
+      "approval_reason": "customer_outreach",
+      "risks": [
+        "Unsubscribes if sent too often"
+      ],
+      "targets": {
+        "channel": "email",
+        "segment": null,
+        "lead_ids": []
+      },
+      "synthetic": true,
+      "created_at": "2026-10-04T05:05:00Z",
+      "updated_at": "2026-10-04T05:05:00Z",
+      "decision": null,
+      "ledger": null,
+      "llm": {
+        "used": false,
+        "cached": false,
+        "provider": null,
+        "model": null,
+        "fallback": true,
+        "validator": {
+          "passed": false,
+          "retries": 0,
+          "errors": []
+        },
+        "prompt_version": "v1"
+      }
+    },
+    {
+      "recommendation_id": "rec_instagram_test",
+      "business_id": "biz_aarohi_skin",
+      "template_id": "tpl_instagram_attribution_test",
+      "signal_ids": [
+        "sig_instagram_cac_spike",
+        "sig_instagram_low_contribution"
+      ],
+      "title": "Audit Instagram attribution and run one bounded creative/landing test",
+      "rationale": "Instagram CAC jumped to INR 612 from a INR 410 baseline (+49.3%); Google CAC is stable. Instagram spend returns 0.694 contribution per rupee against a 1.035 baseline. Recommended action: audit instagram attribution and run one bounded creative/landing test. Success means contribution ROAS between 0.798 and 0.999 within 7 days.",
+      "evidence_ids": [
+        "f_cac_instagram",
+        "f_spend_instagram",
+        "f_cac_google",
+        "f_croas_instagram",
+        "f_conv_instagram"
+      ],
+      "factors": {
+        "I": 0.75,
+        "U": 0.7,
+        "F": 0.7,
+        "R": 0.8,
+        "T": 0.5,
+        "Q": 0.74,
+        "E": 0.4,
+        "C": 0.3,
+        "D": 0.3
+      },
+      "q_breakdown": {
+        "data": 0.615,
+        "rule": 1.0
+      },
+      "benefit": 0.703,
+      "cost_penalty": 0.345,
+      "priority": 49.6,
+      "rank": 3,
+      "status": "proposed",
+      "blocked_reason": null,
+      "eligibility": [
+        {
+          "check": "forbidden_action",
+          "passed": true,
+          "detail": "Not a forbidden action."
+        },
+        {
+          "check": "budget",
+          "passed": true,
+          "detail": "Fits the budget."
+        },
+        {
+          "check": "capacity",
+          "passed": true,
+          "detail": "Fits weekly capacity."
+        },
+        {
+          "check": "data",
+          "passed": true,
+          "detail": "Required data present."
+        },
+        {
+          "check": "approval",
+          "passed": true,
+          "detail": "Human approval required."
+        }
+      ],
+      "expected": {
+        "kpi": "contribution_roas",
+        "fact_id": "f_croas_instagram",
+        "direction": "up",
+        "low": 0.798,
+        "high": 0.999,
+        "unit": "ratio",
+        "window_days": 7,
+        "basis": "15% to 44% change from the current value"
+      },
+      "confidence": "medium",
+      "assumptions": [
+        "Data quality for contribution ROAS is partial: Orders and campaigns load cleanly after repairs; shipping costs are estimated, so contribution metrics are partial.",
+        "Contribution uses estimated shipping costs"
+      ],
+      "requires_approval": true,
+      "approval_reason": "spend",
+      "risks": [
+        "Small sample in one week",
+        "Attribution gaps"
+      ],
+      "targets": {
+        "channel": "instagram",
+        "segment": null,
+        "lead_ids": []
+      },
+      "synthetic": true,
+      "created_at": "2026-10-04T05:05:00Z",
+      "updated_at": "2026-10-04T05:05:00Z",
+      "decision": null,
+      "ledger": null,
+      "llm": {
+        "used": false,
+        "cached": false,
+        "provider": null,
+        "model": null,
+        "fallback": true,
+        "validator": {
+          "passed": false,
+          "retries": 0,
+          "errors": []
+        },
+        "prompt_version": "v1"
+      }
+    },
+    {
+      "recommendation_id": "rec_increase_spend",
+      "business_id": "biz_aarohi_skin",
+      "template_id": "tpl_increase_ad_spend",
+      "signal_ids": [
+        "sig_instagram_cac_spike",
+        "sig_instagram_low_contribution"
+      ],
+      "title": "Increase Instagram ad spend",
+      "rationale": "Violates the constraint 'no increase in total ad spend' (forbidden action: increase_total_ad_spend). Instagram CAC is up 49.3% and contribution ROAS is 0.694, so more spend buys customers below break-even.",
+      "evidence_ids": [
+        "f_cac_instagram",
+        "f_spend_instagram",
+        "f_cac_google"
+      ],
+      "factors": {
+        "I": 0.6,
+        "U": 0.7,
+        "F": 0.9,
+        "R": 0.6,
+        "T": 0.8,
+        "Q": 0.74,
+        "E": 0.1,
+        "C": 0.8,
+        "D": 0.1
+      },
+      "q_breakdown": {
+        "data": 0.615,
+        "rule": 1.0
+      },
+      "benefit": null,
+      "cost_penalty": null,
+      "priority": null,
+      "rank": null,
+      "status": "blocked",
+      "blocked_reason": "Violates the constraint 'no increase in total ad spend' (forbidden action: increase_total_ad_spend). Instagram CAC is up 49.3% and contribution ROAS is 0.694, so more spend buys customers below break-even.",
+      "eligibility": [
+        {
+          "check": "forbidden_action",
+          "passed": false,
+          "detail": "Violates the constraint 'no increase in total ad spend' (forbidden action: increase_total_ad_spend)."
+        },
+        {
+          "check": "budget",
+          "passed": false,
+          "detail": "Needs INR 10000 of extra spend; INR 0 is allowed."
+        },
+        {
+          "check": "capacity",
+          "passed": true,
+          "detail": "Fits weekly capacity."
+        },
+        {
+          "check": "data",
+          "passed": true,
+          "detail": "Required data present."
+        },
+        {
+          "check": "approval",
+          "passed": true,
+          "detail": "Human approval required."
+        }
+      ],
+      "expected": {
+        "kpi": "new_customers",
+        "fact_id": null,
+        "direction": "up",
+        "low": null,
+        "high": null,
+        "unit": null,
+        "window_days": 7
+      },
+      "confidence": "low",
+      "assumptions": [
+        "Data quality for new customers is partial: Orders and campaigns load cleanly after repairs; shipping costs are estimated, so contribution metrics are partial."
+      ],
+      "requires_approval": true,
+      "approval_reason": "spend",
+      "risks": [
+        "Buys customers below contribution break-even"
+      ],
+      "targets": {
+        "channel": "instagram",
+        "segment": null,
+        "lead_ids": []
+      },
+      "synthetic": true,
+      "created_at": "2026-10-04T05:05:00Z",
+      "updated_at": "2026-10-04T05:05:00Z",
+      "decision": null,
+      "ledger": null,
+      "llm": {
+        "used": false,
+        "cached": false,
+        "provider": null,
+        "model": null,
+        "fallback": true,
+        "validator": {
+          "passed": true,
+          "retries": 0,
+          "errors": []
+        },
+        "prompt_version": null
+      }
+    }
+  ]
+}
